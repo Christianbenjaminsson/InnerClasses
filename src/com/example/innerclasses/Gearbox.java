@@ -14,6 +14,10 @@ public class Gearbox {
         this.gears = new ArrayList<>();
         Gear neutral = new Gear(0,0.0);
         this.gears.add(neutral);
+
+        for (int i = 0; i < maxGears; i ++) {
+            addGear(i, i * 5.3);
+        }
     }
 
     public void operateClutch (boolean in) {
@@ -29,7 +33,7 @@ public class Gearbox {
     public void changeGear (int newGear) {
         if ((newGear >=0) && (newGear < this.gears.size()) && this.clutchIsIn) {
             this.currentGear = newGear;
-            System.out.println("Gear" + newGear + " selected");
+            System.out.println("Gear " + newGear + " selected");
         } else {
             System.out.println("Grind!");
             this.currentGear = 0;
